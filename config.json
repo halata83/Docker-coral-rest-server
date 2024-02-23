@@ -1,0 +1,31 @@
+{
+  "name": "CORAL TPU Rest API",
+  "version": "0.1.22",
+  "slug": "coral-api",
+  "description": "CORAL REST API compatible with Deepstack addon",
+  "url": "https://github.com/grinco/HASS-coral-rest-api",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "startup": "application",
+  "boot": "auto",
+  "map": ["config:rw"],
+  "usb": true,
+  "devices": ["/dev/apex_0"], 
+  "udev": true,
+  "init": false,
+  "ports": {
+    "5000/tcp": 5000
+  },
+  "ports_description": {
+    "5000/tcp": "API"
+  },
+  "options": {
+    "MODEL_URL": "https://github.com/google/mediapipe/raw/master/mediapipe/examples/coral/models/object-detector-quantized_edgetpu.tflite",
+    "LABELS_URL": "https://raw.githubusercontent.com/google/mediapipe/master/mediapipe/examples/coral/models/object_detection_labelmap.txt",
+    "ACCESS_LOG": false 
+  },
+  "schema": {
+    "MODEL_URL": "str",
+    "LABELS_URL": "str",
+    "ACCESS_LOG": "bool"
+  }
+}
